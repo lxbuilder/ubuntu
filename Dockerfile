@@ -2,8 +2,9 @@
 FROM ubuntu:focal-20200925 as base
 
 RUN rm -rf /var/cache/* /var/log/* && \
-    tar -cf archive2.tar --exclude=./sys --exclude=./proc --exclude=./archive2.tar . && \
-    tar -xf archive2.tar -C /tmp
+    tar -cf archive.tar --exclude=./sys --exclude=./proc --exclude=./archive.tar . && \
+    tar -xf archive.tar -C /tmp && \
+    rm archive.tar
 
 FROM scratch
 
